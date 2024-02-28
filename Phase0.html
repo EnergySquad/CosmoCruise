@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Player Authentication</title>
+</head>
+<body>
+
+<script>
+// Hardcoded API key
+var apiKey = "NjVjNjA0MGY0Njc3MGQ1YzY2MTcyMmM4OjY1YzYwNDBmNDY3NzBkNWM2NjE3MjJiZQ";
+
+// Make a POST request to authenticate the player
+fetch('http://20.15.114.131:8080/api/login', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ apiKey: apiKey })
+})
+.then(response => response.json())
+.then(data => {
+  // Check if authentication succeeded
+  if (data.token) {
+    // If authentication succeeded, open the desired webpage and store the JWT token in the local storage
+    localStorage.setItem('jwtToken', data.token);
+    // Retrieve JWT token from localStorage
+    // var jwtToken = localStorage.getItem('jwtToken');
+    console.log("Successfull authentication")
+    var confirmation = confirm('Authentication successful. Click OK to proceed to the desired webpage.');
+    if (confirmation) {
+      // If the user clicks OK, redirect to the desired webpage
+      window.location.href = "index.html";
+    }
+
+  } else {
+    // If authentication failed, display an error message
+    console.error('Authentication failed. Please check your API key.');
+    alert('Authentication failed. Please check your API key.');
+  }
+})
+.catch(error => {
+  console.error('Error:', error);
+  alert('An error occurred while processing your request.');
+});
+</script>
+
+</body>
+</html>
