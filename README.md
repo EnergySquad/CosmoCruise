@@ -12,4 +12,4 @@ embark on a desperate mission to conserve energy, identifying and repairing leak
 avenues for alternative power sources. Each choice shapes their fate, propelling them closer to salvation or oblivion.
 In this cosmic voyage, every decision charts the course of humanity's destiny
 
-**Relevant codes for Phse 0 can be found in folder called _Phase0 Called_**
+**Relevant codes for Phse 0 can be found in folder called _Phase0 Codes_**
